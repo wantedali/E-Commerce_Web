@@ -65,4 +65,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden; 
+    position: relative; 
+}
+
+.hero-right img {
+    position: absolute;
+    top: 12%;
+    left: 25%;
+    width: 538px;
+    /* height: 70%; */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hero-right.animate img {
+    opacity: 0; /* Fade out the image during animation */
 }
