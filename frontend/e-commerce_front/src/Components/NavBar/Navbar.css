@@ -1,7 +1,7 @@
 .navbar{
 display: flex;
 justify-content: space-around;
-padding: 16px;
+padding: 8px;
 box-shadow: 0 1px 3px -2px black;
 }
 
@@ -50,8 +50,8 @@ font-weight: 600;
     gap: 45px;
 }
 
-.nav-login-cart button{
-    width: 157px;
+.but{
+    /* width: 157px;
     height: 58px;
     outline: none;
     border: 1px solid #023E8A;
@@ -60,11 +60,35 @@ font-weight: 600;
     font-weight: 500;
     background: white;
     cursor: pointer;
+    transition: background-color 1s , ease-in-out , border 1s , ease-in-out .2s; */
+
+
+
+    outline: none;
+    border: 1px solid #023E8A;
+    display: center;
+    gap: 15px;
+    width: 157px;
+    height: 58px;
+    border-radius: 75px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #023E8A;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;    
+    margin-top: center;
+    
 }
 
-.nav-login-cart button:active{
-    background: #f3f3f3;
-}
+.but:hover {
+    background-color: #007bff;
+   /* Change to a lighter shade */
+    transform: scale(1.05);
+    /* Scale up by 5% on hover */
+   }
 
 .nav-cart-count{
     width: 22px;
