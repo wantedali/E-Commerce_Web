@@ -1,16 +1,16 @@
 import React from 'react';
-import './footer.css';
+import './Footer1.css';
 import footer_logo from '../Assets/logo_big.png'
-import instagram_icon from '../Assets/instagram.png'
+import instagram_icon from '../Assets/instagram_icon.png'
 import pintester_icon from '../Assets/pintester_icon.png'
 import whatsapp_icon from '../Assets/whatsapp_icon.png'
-const footer = () =>{
+const Footer1 = () =>{
 
     return (
         <div className="footer">
             <div className="footer-logo">
             <img src="footer-logo" alt="" />
-            <p>Shopper</p>
+            <p>E-Shop</p>
             </div>
             <ul className="footer-links">
             <li>Company</li>
@@ -30,10 +30,10 @@ const footer = () =>{
                 <img src={whatsapp_icon} alt="" />
             </div>
             <div className="footer-copyright"></div>
-                <hr>Copyright @ 2024 - All Right Reserved</hr>
+                Copyright @ 2024 - All Right Reserved<hr1/>
             </div>
          </div>
     )
 
 }
-export default footer
+export default Footer1;
