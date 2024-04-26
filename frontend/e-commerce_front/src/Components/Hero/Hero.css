@@ -65,19 +65,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; 
-    position: relative; 
+    overflow: hidden;
+    /* Hide overflow to prevent image overflow */
+    position: relative;
+    /* Set position to relative for absolute positioning */
 }
 
 .hero-right img {
     position: absolute;
-    top: 12%;
-    left: 25%;
-    width: 538px;
-    /* height: 70%; */
-    transition: opacity 0.3s ease-in-out;
+    top: 55px;
+    left: 110px;
+    width: 600px;
+    /* height: 108%; */
+    transition: opacity 0.5s ease-in-out;
 }
 
 .hero-right.animate img {
-    opacity: 0; /* Fade out the image during animation */
+    opacity: 0;
+    /* Fade out the image during animation */
 }
