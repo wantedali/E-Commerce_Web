@@ -50,7 +50,7 @@ const Hero = () => {
                     <img src={arrow_icon} alt="" />
                 </div>
             </div>
-            <div className='hero-right'>
+            <div className={`hero-right ${isAnimating ? 'animate' : ''}`}>
                 <img src={currentImage} alt="" />
             </div>
         </div>
