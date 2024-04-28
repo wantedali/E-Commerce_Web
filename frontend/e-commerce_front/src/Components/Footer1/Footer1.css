@@ -30,17 +30,17 @@
     cursor: pointer;
   }
   
-  .footer-social-icon {
+  .footer-social-icons {
     display: flex;
     gap: 20px;
   }
 
   .footer-icons-container {
-    display: flex;
     padding: 10px;
     padding-bottom: 6px;
     background: #fbfbfb;
-    border: 1px solid #ebebeb;
+    border: 2px solid #cccccc;
+    border-radius: 30px;
   }
   
   .footer-copyright {

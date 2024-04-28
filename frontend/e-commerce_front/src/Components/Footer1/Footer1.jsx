@@ -20,17 +20,19 @@ const Footer1 = () =>{
             <li>Contact</li>
             </ul>
             <div className="footer-social-icons">
-            <div className="footer-icons-container">
-                <img src={instagram_icon} alt="" />
+                <div className="footer-icons-container">
+                    <img src={instagram_icon} alt="" />
+                </div>
+                <div className="footer-icons-container">
+                    <img src={pintester_icon} alt="" />
+                </div>
+                <div className="footer-icons-container">
+                    <img src={whatsapp_icon} alt="" />
+                </div>
             </div>
-            <div className="footer-icons-container">
-                <img src={pintester_icon} alt="" />
-            </div>
-            <div className="footer-icons-container">
-                <img src={whatsapp_icon} alt="" />
-            </div>
-            <div className="footer-copyright"></div>
-                Copyright @ 2024 - All Right Reserved<hr1/>
+            <div className="footer-copyright">
+                <hr />
+                <p>Copyright @ 2024 - All Right Reserved</p>
             </div>
          </div>
     )
