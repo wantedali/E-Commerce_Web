@@ -17,7 +17,7 @@ const LoginSignup = () => {
                 <div class="group-child"></div>
                 <b class="e-shop-login">
                     <span>E-Shop</span>
-                    <span class="login"> Login</span>
+                    <span class="login"> SignUp</span>
                 </b>
                 <div class="hide">Hide</div>
                 <b class="already-have-an-container">
