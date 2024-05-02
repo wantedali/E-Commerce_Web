@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -21,3 +22,8 @@ app.post('/items',async(req,res)=>{
 
     res.json(newItem);
 }); //
+=======
+document.write("teez alii")
+console.log("Hello world!");
+console.log('tez ay 7ad')
+>>>>>>> Atef's-branch
