@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
@@ -20,4 +20,4 @@ app.post('/items',async(req,res)=>{
     await newItem.save();
 
     res.json(newItem);
-}); //
+}); */
