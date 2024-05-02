@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import hand_icon from '../Assets/hand_icon.png'; // Assuming you have imported your images correctly
+import hand_icon from '../Assets/hand_icon.png';
 import arrow_icon from '../Assets/arrow.png';
 // import hero_image1 from '../Assets/hero_image5.jpg'; // New image imports
 // import hero_image2 from '../Assets/hero_image6.jpg'; // New image imports
@@ -32,9 +32,7 @@ const Hero = () => {
     return (
         <div className="hero">
             <div className='hero-left'>
-                <h2>
-                    NEW ARRIVALS ONLY
-                </h2>
+                <h2>NEW ARRIVALS ONLY</h2>
                 <div>
                     <div className='hero-hand-icon'>
                         <p>New</p>
@@ -44,9 +42,7 @@ const Hero = () => {
                     <p>For Everyone</p>
                 </div>
                 <div className="hero-latest-btn">
-                    <div>
-                        Latest Collection
-                    </div>
+                    <div>Latest Collection</div>
                     <img src={arrow_icon} alt="" />
                 </div>
             </div>
