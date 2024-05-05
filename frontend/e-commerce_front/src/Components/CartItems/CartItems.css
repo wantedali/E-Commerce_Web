@@ -70,20 +70,32 @@
 }
 
 .new-group-inner {
-    top: 0;
+    top: 20px;
     left: 0;
     background-color: #0077b6;
     width: 117px;
     height: 28px;
+    /* Center content vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .new-women {
-    position: absolute;
-    top: 6px;
-    left: 37px;
-    display: inline-block;
-    width: 44px;
-    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Ensure the text takes the full width of the parent */
+    height: 100%;
+    /* Ensure the text takes the full height of the parent */
+    /* Remove absolute positioning */
+    position: static;
+    /* or whatever positioning you use for its parent */
+    /* Optionally, adjust top and left properties if needed */
+    /* top: 6px;
+    left: 37px; */
+    text-transform: capitalize;
 }
 
 .new-rectangle-group {
@@ -122,7 +134,8 @@
 
 .new-mdiheart-outline,
 .new-tablertrash,
-.new-vector-icon1 {
+.new-vector-icon1,
+.new-group-button {
     position: absolute;
     overflow: hidden;
 }
@@ -147,6 +160,25 @@
     left: 776px;
     width: 24px;
     height: 24px;
+}
+
+.new-plus {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    top: 86px;
+    left: 628px;
+    width: 11px;
+    height: 11px;
+}
+
+img.new-plus-icon {
+    position: absolute;
+    width: 11px;
+    top: 13px;
+    height: 11px;
+    left: 93px;
 }
 
 .new-striped-flutter-sleeve {
@@ -179,7 +211,7 @@
 
 .new-div {
     top: 82px;
-    left: 596px;
+    left: 594px;
     font-size: 13px;
     width: 6px;
     height: 15px;
@@ -187,7 +219,7 @@
 
 .new-egp230 {
     top: 16px;
-    left: 728px;
+    left: 763px;
     font-weight: 500;
     width: 80px;
     height: 24px;
@@ -200,8 +232,10 @@
     height: 177px;
     font-size: 19px;
     position: relative;
-    margin-bottom: 20px; /* Add margin between each cart item */
-    top: 285px; /* You can adjust this value as needed */
+    margin-bottom: 20px;
+    /* Add margin between each cart item */
+    top: 285px;
+    /* You can adjust this value as needed */
     left: 100px;
 }
 
@@ -311,20 +345,28 @@
     background-color: #023e8a;
     width: 355px;
     height: 52px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .new-checkout {
     position: absolute;
     top: 13px;
     left: 132px;
-    font-size: 19px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 300;
     font-family: Poppins;
     color: #fff;
     text-align: left;
     display: inline-block;
     width: 102px;
     height: 24px;
+}
+
+.new-group-child1:hover {
+    background-color: #007bff;
+    /* Change to a lighter shade */
+    transform: scale(1.05);
+    /* Scale up by 5% on hover */
 }
 
 .new-rectangle-container {
@@ -339,23 +381,42 @@
     height: 52px;
 }
 
-.new-cart-items-inner,
+
 .new-group-child2,
 .new-group-child3 {
     position: absolute;
     border-radius: 10px;
     background-color: #464646;
 }
-
-.new-cart-items-inner {
+.new-minus {
     cursor: pointer;
     border: 0;
     padding: 0;
-    top: 377px;
-    left: 656px;
-    width: 14px;
-    height: 2px;
+    background-color: transparent;
+    top: 86px;
+    left: 628px;
+    width: 11px;
+    height: 11px;
 }
+
+img.new-cart-items-inner {
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    top: 13px;
+    left: 18px;
+}
+
+/* .new-cart-items-inner {
+    position: absolute;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    top: 87px;
+    left: 559px;
+    width: 11px;
+    height: 11px;
+} */
 
 .new-group-child2,
 .new-group-child3 {
@@ -372,7 +433,7 @@
     transform-origin: 0 0;
 }
 
-.new-group-button {
+/* .new-group-button {
     cursor: pointer;
     border: 0;
     padding: 0;
@@ -382,7 +443,12 @@
     left: 628px;
     width: 11px;
     height: 11px;
-}
+} */
+
+/* div .new-plus-icon {
+    position: absolute;
+    width: 40px;
+} */
 
 .new-cart-items {
     width: 100%;
@@ -396,4 +462,114 @@
     font-size: 16px;
     color: #000;
     font-family: Poppins;
+}
+
+/* sssssssssssss */
+.nothing-in-here,
+.your-cart-is {
+    position: absolute;
+    left: 195px;
+    display: inline-block;
+}
+
+.nothing-in-here {
+    top: 402px;
+    font-weight: 500;
+    width: 467px;
+    height: 85px;
+}
+
+.your-cart-is {
+    top: 500px;
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.63);
+    width: 327px;
+    height: 40px;
+}
+
+.group-child-no {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 6px;
+    background-color: #023e8a;
+    width: 355px;
+    height: 52px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.group-child-no:hover {
+    background-color: #007bff;
+    /* Change to a lighter shade */
+    transform: scale(1.05);
+    /* Scale up by 5% on hover */
+}
+
+.continue-shopping {
+    position: absolute;
+    top: 14px;
+    left: 97px;
+    font-size: 19px;
+    font-weight: 500;
+    font-family: var(--font-poppins);
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+    width: 189px;
+    height: 24px;
+}
+
+.rectangle-parent-no {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 564px;
+    left: 195px;
+    width: 355px;
+    height: 52px;
+}
+
+.boxes-and-shopping-bag-with-di,
+.question-mark-icon {
+    position: absolute;
+    top: 363px;
+    left: 765px;
+    width: 446px;
+    height: 322px;
+    object-fit: cover;
+}
+
+.question-mark-icon {
+    top: 191px;
+    left: 1139px;
+    width: 144px;
+    height: 253px;
+}
+
+.cart-items2 {
+    width: 100%;
+    position: relative;
+    border-radius: 11px;
+    background-color: #f7f7f7;
+    height: 982px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 55px;
+    color: #000;
+    font-family: var(--font-poppins);
+    left: 100px;
+    top: -45px;
+}
+
+.new-cart2 {
+    width: 100%;
+    top: 18px;
+    position: relative;
+    background-color: #f7f7f7;
+    height: 982px;
+    overflow: hidden;
+    text-align: left;
+    left: 75px;
 }
