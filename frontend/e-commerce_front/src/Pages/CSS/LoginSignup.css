@@ -109,7 +109,8 @@
     height: 56.2px;
     padding: 17.30000000000001px var(--padding-7xl) 17.199999999999992px;
     color: var(--color-gray-100);
-    top: 40px;;
+    top: 40px;
+    ;
 }
 
 .frame-inner,
