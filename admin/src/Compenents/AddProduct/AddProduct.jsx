@@ -6,7 +6,7 @@ import upload_area from '../../assets/upload_area.svg';
 const AddProduct = () => {
    
 
-    const [image,setImage] = useState(null);
+    const [image,setImage] = useState(false);
     const [productDetails, setProductDetails] = useState({
         name: "",
         image: "",
@@ -41,7 +41,7 @@ const AddProduct = () => {
               if (responseData.success) {
                 product.image=responseData.image_url;
                 console.log(product);
-              }//endif
+              }
               
               await fetch('http://localhost:4000/addproduct', {
                      method: 'POST',
@@ -93,7 +93,7 @@ const AddProduct = () => {
                 </label>
                 <input onChange={imageHandler} type="file" name='image' id='file-input' hidden />
             </div>
-            <button onClick={add_product} className='addproduct-btn'>ADD</button>
+            <button onClick={()=>{add_product()}} className='addproduct-btn'>ADD</button>
         </div>
     );
 };

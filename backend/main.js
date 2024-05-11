@@ -29,7 +29,7 @@ const storage=multer.diskStorage({
     } 
 })
 const upload=multer({storage:storage})
-app.subscribe('/images',express.static('uploads/images'))
+app.use('/images', express.static('upload/images'));
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json(
         {
@@ -134,7 +134,7 @@ const Users = mongoose.model('Users', {
         type:Object,
     },
     date:{
-        type:date,
+        type:Date,
         default:Date.now,
     }
 
@@ -142,7 +142,7 @@ const Users = mongoose.model('Users', {
 
 
     //creating end point for regestring the user 
-    app.post('signup', async (req, res) => {
+    app.post('/signup', async (req, res) => {
         let check = await Users.findOne({ email: req.body.email });
     
         if (check) {
