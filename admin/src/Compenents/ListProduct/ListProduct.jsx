@@ -15,7 +15,6 @@ await fetch('http://localhost:4000/allproducts')
        fetchInfo();
           },[])
 
-          
 const remove_product = async (id)=>{
     await fetch('http://localhost:4000/removeproduct', {
     method: 'POST',
