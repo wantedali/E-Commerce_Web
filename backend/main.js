@@ -8,6 +8,7 @@ const jwt= require('jsonwebtoken');
 const multer= require('multer');
 const path= require('path');
 const cors=require('cors');
+const { type } = require('os');
 app.use(express.json());
 app.use(cors());
 
@@ -117,6 +118,64 @@ app.get('/allproducts', async (req,res)=>{
     console.log("All products fetched");
     res.send(products);
 })
+
+//Schema creating for user model
+const Users = mongoose.model('Users', {
+    name: {
+    type: String,
+    },
+    email:{
+    type: String,
+    unique:true,
+    },
+    password: { type: String,
+    },
+   cartDate:{
+        type:Object,
+    },
+    date:{
+        type:date,
+        default:Date.now,
+    }
+
+    })
+
+
+    //creating end point for regestring the user 
+    app.post('signup', async (req, res) => {
+        let check = await Users.findOne({ email: req.body.email });
+    
+        if (check) {
+            return res.status(400).json({ success: false, errors: "existing user found with same email address" });
+        }
+    
+        let cart = {};
+        for (let i = 0; i < 300; i++) {
+            cart[i] = 0;
+        }
+    
+        const user = new Users({
+            name: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            cartData: cart,
+        });
+    
+        let saveUser = await user.save();
+    
+        const data = {
+            user: {
+                id: saveUser.id
+            }
+        };
+    
+        const token = jwt.sign(data, 'secret_ecom');
+        res.json({ success: true, token });
+    });
+    
+
+
+    
 app.listen(port,(error)=>{
     if(!error) {
         console.log(`Server is running on port ${port}`);
