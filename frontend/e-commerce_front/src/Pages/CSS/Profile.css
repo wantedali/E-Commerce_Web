@@ -1,0 +1,272 @@
+.group-child_modified,
+.profile-page-inner_modified {
+    position: absolute;
+    width: 864px;
+    height: 864px;
+}
+
+.group-child_modified {
+    top: 0;
+    left: 0;
+    box-shadow: 3px 10px 45px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.54);
+}
+
+.profile-page-inner_modified {
+    top: 59px;
+    left: 292px;
+}
+
+.group-inner_modified,
+.group-item_modified {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+}
+
+.group-item_modified {
+    width: 99px;
+    height: 99px;
+    object-fit: cover;
+}
+
+.group-inner_modified {
+    background-color: #023e8a;
+    /* replaced variable with value */
+    width: 29px;
+    height: 29px;
+}
+
+.vector-icon_modified {
+    position: absolute;
+    height: 41.38%;
+    width: 41.38%;
+    top: 31.03%;
+    right: 27.59%;
+    bottom: 27.59%;
+    left: 31.03%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.ellipse-group_modified {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 69px;
+    left: 69px;
+    width: 29px;
+    height: 29px;
+}
+
+.ellipse-parent_modified,
+.first-name_modified {
+    position: absolute;
+    top: 91px;
+    left: 657px;
+    width: 99px;
+    height: 99px;
+}
+
+.first-name_modified {
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 107px;
+    height: 27px;
+}
+
+.rectangle-input_modified {
+    border: 2px solid rgba(78, 78, 78, 0.33);
+    /* replaced variable with value */
+    outline: 0;
+    background-color: rgba(217, 217, 217, 0);
+    /* replaced variable with value */
+    position: absolute;
+    top: 36px;
+    left: 0;
+    border-radius: 7px;
+    /* replaced variable with value */
+    box-sizing: border-box;
+    width: 297px;
+    height: 45px;
+    /* Adjust the position of the text */
+    padding-top: 1px;
+    /* Example: Increase padding from the top */
+    padding-left: 20px;
+    /* Example: Increase padding from the left */
+}
+
+.city-parent_modified,
+.first-name-parent_modified,
+.group-child2_modified {
+    position: absolute;
+    top: 224px;
+    left: 399px;
+    width: 297px;
+    height: 81px;
+}
+
+.city-parent_modified,
+.group-child2_modified {
+    top: 616px;
+}
+
+.group-child2_modified {
+    border: 2px solid rgba(78, 78, 78, 0.33);
+    /* replaced variable with value */
+    outline: 0;
+    background-color: rgba(217, 217, 217, 0);
+    /* replaced variable with value */
+    top: 36px;
+    left: 0;
+    border-radius: 7px;
+    /* replaced variable with value */
+    box-sizing: border-box;
+    width: 640px;
+    height: 45px;
+    /* Adjust the position of the text */
+    padding-top: 1px;
+    /* Example: Increase padding from the top */
+    padding-left: 20px;
+    /* Example: Increase padding from the left */
+}
+
+.contact-number_modified,
+.email-parent_modified,
+.username-parent_modified {
+    position: absolute;
+    top: 322px;
+    left: 399px;
+    width: 640px;
+    height: 81px;
+}
+
+.contact-number_modified,
+.email-parent_modified {
+    top: 420px;
+}
+
+.contact-number_modified {
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 145px;
+    height: 27px;
+}
+
+.contact-number-parent_modified,
+.password-parent_modified {
+    position: absolute;
+    top: 518px;
+    left: 399px;
+    width: 640px;
+    height: 81px;
+}
+
+.password-parent_modified {
+    top: 714px;
+}
+
+.last-name-parent_modified,
+.state-parent_modified {
+    position: absolute;
+    top: 224px;
+    left: 742px;
+    width: 297px;
+    height: 81px;
+}
+
+.state-parent_modified {
+    top: 616px;
+}
+
+.chevron-left-normal-icon_modified,
+.chevron-left-normal-icon1_modified {
+    position: absolute;
+    top: 663px;
+    left: 997px;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    object-fit: contain;
+}
+
+.chevron-left-normal-icon1_modified {
+    left: 653px;
+}
+
+.rectangle-button_modified {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: #023e8a;
+    /* replaced variable with value */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 6px;
+    /* replaced variable with value */
+    width: 226px;
+    height: 52px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.rectangle-button_modified:hover {
+    background-color: #007bff;
+    /* Change to a lighter shade */
+    transform: scale(1.05);
+    /* Scale up by 5% on hover */
+}
+
+.save-changes_modified {
+    position: absolute;
+    top: 16px;
+    left: 60px;
+    font-weight: 300;
+    display: inline-block;
+    width: 110px;
+    height: 24px;
+}
+
+.rectangle-parent_modified {
+    position: absolute;
+    top: 837px;
+    left: 399px;
+    width: 226px;
+    height: 52px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.profile-page_modified {
+    width: 100%;
+    position: relative;
+    border-radius: 11px;
+    background-color: #f7f7f7;
+    height: 982px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 17px;
+    /* replaced variable with value */
+    color: #000;
+    font-family: Poppins;
+    /* replaced variable with value */
+}
+
+.contain-prof {
+    position: absolute;
+    left: 150px;
+}
+
+.rectangle-input_modified::placeholder,
+.group-child2_modified::placeholder {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+}

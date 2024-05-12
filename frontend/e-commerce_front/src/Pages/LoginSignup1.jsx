@@ -12,90 +12,90 @@ import './CSS/LoginSignup1.css'
 
 const LoginSignup1 = () => {
     return (
-        <div class="sign-in">
-            <div class="copyright-blabel">Copyright @Blabel | Privacy Policy</div>
-            <div class="rectangle-parent">
-                <div class="group-child"></div>
-                <b class="e-shop-login">
+        <div className="old-sign-in">
+            <div className="old-copyright-blabel">Copyright @Blabel | Privacy Policy</div>
+            <div className="old-rectangle-parent">
+                <div className="old-group-child"></div>
+                <b className="old-e-shop-login">
                     <span>E-Shop</span>
-                    <span class="login"> SignUp</span>
+                    <span className="old-login"> SignUp</span>
                 </b>
-                <div class="hide">Hide</div>
-                <b class="already-have-an-container">
+                <div className="old-hide">Hide</div>
+                <b className="old-already-have-an-container">
                     <span>Already have an account? </span>
-                  <Link to='/Login'><span class="login-here">Login here</span></Link>
+                    <Link to='/Login'><span className="old-login-here">Login here</span></Link>
                 </b>
-                <div class="hey-enter-your">
+                <div className="old-hey-enter-your">
                     Hey, Enter your details to get sign up to a new account
                 </div>
-                <div class="group-parent">
+                <div className="old-group-parent">
                     <input
-                        class="frame-child"
+                        className="old-frame-child"
                         name="username"
                         placeholder="Username"
                         type="text"
                     />
 
                     <input
-                        class="frame-item"
+                        className="old-frame-item"
                         name="Email"
                         placeholder="Email"
                         type="email"
                     />
 
                     <input
-                        class="frame-inner"
+                        className="old-frame-inner"
                         name="password"
                         placeholder="Password"
                         type="password"
                     />
                 </div>
-                <button class="group-container">
-                    <div class="rectangle-wrapper">
-                        <div class="group-item"></div>
+                <button className="old-group-container">
+                    <div className="old-rectangle-wrapper">
+                        <div className="old-group-item"></div>
                     </div>
-                    <div class="continue">Continue</div>
+                    <div className="old-continue">Continue</div>
                 </button>
-                <div class="our-social-pages-parent">
-                    <b class="our-social-pages">Our Social pages </b>
-                    <div class="group-inner"></div>
-                    <div class="line-div"></div>
+                <div className="old-our-social-pages-parent">
+                    <b className="old-our-social-pages">Our Social pages </b>
+                    <div className="old-group-inner"></div>
+                    <div className="old-line-div"></div>
                 </div>
-                <div class="sso-login-parent">
-                    <div class="sso-login">
-                        <img class="sso-icon" alt="" src={sso_icon2x} />
+                <div className="old-sso-login-parent">
+                    <div className="old-sso-login">
+                        <img className="old-sso-icon" alt="" src={sso_icon2x} />
                     </div>
-                    <div class="sso-login">
-                        <img class="sso-icon1" alt="" src={sso_icon} />
+                    <div className="old-sso-login">
+                        <img className="old-sso-icon1" alt="" src={sso_icon} />
                     </div>
-                    <div class="sso-login">
-                        <img class="sso-icon" alt="" src={sso_icon12x} />
+                    <div className="old-sso-login">
+                        <img className="old-sso-icon" alt="" src={sso_icon12x} />
                     </div>
-                    <div class="sso-login">
-                        <img class="sso-icon1" alt="" src={sso_icon2} />
+                    <div className="old-sso-login">
+                        <img className="old-sso-icon1" alt="" src={sso_icon2} />
                     </div>
                 </div>
             </div>
             <img
-                class="shopping-package-icon"
+                className="old-shopping-package-icon"
                 alt=""
                 src={shopping_package2x}
             />
 
             <img
-                class="shopping-cart-icon"
+                className="old-shopping-cart-icon"
                 alt=""
                 src={shopping_cart2x}
             />
 
             <img
-                class="shopping-bags-icon"
+                className="old-shopping-bags-icon"
                 alt=""
                 src={shopping_bags2x}
             />
 
             <img
-                class="shopping-basket-full-of-grocer"
+                className="old-shopping-basket-full-of-grocer"
                 alt=""
                 src={shopping_basket_full_of_groceries2x}
             />
