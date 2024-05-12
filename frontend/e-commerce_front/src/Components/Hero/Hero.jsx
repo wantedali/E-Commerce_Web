@@ -8,7 +8,7 @@ import Fashion_Models from '../Assets/Fashion_Models.png'; // New image imports
 import Hero_image10 from '../Assets/Hero_image10.png'; // New image imports
 import './Hero.css'; // Import your CSS file
 
-const heroImages = [ hero_image3, Fashion_Models, Hero_image10];
+const heroImages = [ hero_image3,  Hero_image10];
 
 const Hero = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
