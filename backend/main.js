@@ -174,7 +174,27 @@ const Users = mongoose.model('Users', {
     });
     
 
-
+//creating end point for user login
+app.post('/login',async(req, res) => {
+    let user = await Users.findOne({email:req.body.email});
+    if(user) {
+        const passCompare=req.body.password===user.password;
+        if(passCompare) {
+            const data = {
+                user: {
+                    id: user.id
+                }
+            };
+            const token = jwt.sign(data,'secret_ecom');
+            res.json({ success: true, token });
+        }
+        else {
+            res.status(400).json({ success: false, errors: "password is incorrect" });
+        }
+    }else{
+        res.status(400).json({ success: false, errors: "user not found" });
+    }
+})
     
 app.listen(port,(error)=>{
     if(!error) {
