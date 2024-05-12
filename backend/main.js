@@ -8,10 +8,13 @@ const jwt= require('jsonwebtoken');
 const multer= require('multer');
 const path= require('path');
 const cors=require('cors');
+const bcrypt = require('bcrypt');
 const { type } = require('os');
 app.use(express.json());
 app.use(cors());
 
+const PEPPER = "amraliomar";
+const SALT_ROUNDS = 10;
 // Database connection with mongoDB
 mongoose.connect("mongodb+srv://wantedali:alikhaled1234@cluster0.3asplb3.mongodb.net/e-commerce")
 
@@ -154,11 +157,15 @@ const Users = mongoose.model('Users', {
         for (let i = 0; i < 300; i++) {
             cart[i] = 0;
         }
-    
+
+        const hash = bcrypt.hashSync(
+            req.body.password + PEPPER,parseInt(SALT_ROUNDS)
+        );
+
         const user = new Users({
             name: req.body.username,
             email: req.body.email,
-            password: req.body.password,
+            password: hash,
             cartData: cart,
         });
     
@@ -179,7 +186,7 @@ const Users = mongoose.model('Users', {
 app.post('/login',async(req, res) => {
     let user = await Users.findOne({email:req.body.email});
     if(user) {
-        const passCompare=req.body.password===user.password;
+        const passCompare =  bcrypt.compareSync(req.body.password+ PEPPER,user.password);
         if(passCompare) {
             const data = {
                 user: {
