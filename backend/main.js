@@ -189,13 +189,46 @@ app.post('/login',async(req, res) => {
             res.json({ success: true, token });
         }
         else {
-            res.status(400).json({ success: false, errors: "password is incorrect" });
+            res.json({ success: false, errors: "password is incorrect" });
         }
     }else{
-        res.status(400).json({ success: false, errors: "user not found" });
+        res.json({ success: false, errors: "user not found" });
     }
 })
     
+//creating endpoint for new collection data
+app.get('/newcollections',async(req,res) => {
+    let products=await Product.find({});
+    let newcollection=products.slice(1).slice(-8);
+    console.log("NewCollection Fetched");
+    res.send(newcollection);
+})
+//creating endpoint for popular in women section
+app.get('/popularinwomen',async(req,res) => {
+    let products=await Product.find({category: 'women'});
+    let popularinwomen=products.slice(0,4);
+    console.log("Popular In Women Fetched");
+    res.send(popularinwomen);
+})
+//creating middleware to fetch user 
+const fetchUser=async(req,res) => {
+    const token=req.header('auth-token');
+    if(!token){
+        res.status(401).send({errors:"Please authenticate using valid token"});
+    }else{
+        try{
+            const data=jwt.verify(token,'secret_ecom');
+            req.user=data.user;
+            next();
+        }catch(error){
+res.status(401).send({errors:"Please authenticate using valid token"});
+        }
+    }
+}
+//creating endpoint for adding in cartdata
+app.post('/addtocart',async(req,res) => {
+    console.log(req.body,req.user);
+})
 app.listen(port,(error)=>{
     if(!error) {
         console.log(`Server is running on port ${port}`);

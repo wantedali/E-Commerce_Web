@@ -9,8 +9,36 @@ import shopping_bags2x from '../Components/Assets/shopping-bags@2x.png'
 import shopping_basket_full_of_groceries2x from '../Components/Assets/shopping-basket-full-of-groceries@2x.png'
 import { Link } from 'react-router-dom';
 import './CSS/LoginSignup.css'
-
+import { useState } from "react";
 const LoginSignup = () => {
+    const [state,setState] = useState("login");
+    // eslint-disable-next-line no-undef
+    const [formData,setFormData] =useState({
+        username:"",
+        password:"",
+        email:""
+    })
+    const changeHandler =(e)=>{
+        setFormData({...formData,[e.target.name]:e.target.value})
+    }
+    const login=async()=>{
+        console.log("Login Function Executed",formData);
+        let responseData;
+        await fetch('http://localhost:4000/login',{
+            method:'POST',
+            headers:{
+                Accept:'application/form-data',
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(formData),
+        }).then((response)=>response.json()).then((data)=>responseData = data);
+        if(responseData.success){
+            localStorage.setItem('auth-token',responseData.token);
+            window.location.replace("/");
+        }else{
+           alert(responseData.errors); 
+        }
+    }
     return (
         <div class="sign-in">
             <div class="copyright-blabel">Copyright @Blabel | Privacy Policy</div>
@@ -28,12 +56,16 @@ const LoginSignup = () => {
                 <div class="hey-enter-your">
                     Hey, Enter your details to Login to your account
                 </div>
+                {state==="login"?
                 <div class="group-parent">
+                   
                     <input
                         class="frame-item"
-                        name="Email"
+                        name="email"
                         placeholder="Email"
                         type="email"
+                        value={formData.email}
+                        onChange={changeHandler}
                     />
 
                     <input
@@ -41,13 +73,16 @@ const LoginSignup = () => {
                         name="password"
                         placeholder="Password"
                         type="password"
+                        value={formData.password}
+                        onChange={changeHandler}
                     />
                 </div>
+:<></>};
                 <button class="group-container">
                     <div class="rectangle-wrapper">
                         <div class="group-item"></div>
                     </div>
-                    <div class="continue">Continue</div>
+                    <div onClick={()=>{state==="login"?login():<></>}} class="continue">Continue</div>
                 </button>
                 <div class="our-social-pages-parent">
                     <b class="our-social-pages">Our Social pages </b>
