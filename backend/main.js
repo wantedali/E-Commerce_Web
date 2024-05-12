@@ -128,9 +128,10 @@ const Users = mongoose.model('Users', {
     type: String,
     unique:true,
     },
-    password: { type: String,
+    password: { 
+        type: String,
     },
-   cartDate:{
+   cartData:{
         type:Object,
     },
     date:{
@@ -211,7 +212,7 @@ app.get('/popularinwomen',async(req,res) => {
     res.send(popularinwomen);
 })
 //creating middleware to fetch user 
-const fetchUser=async(req,res) => {
+const fetchUser=async(req,res,next) => {
     const token=req.header('auth-token');
     if(!token){
         res.status(401).send({errors:"Please authenticate using valid token"});
@@ -226,8 +227,35 @@ res.status(401).send({errors:"Please authenticate using valid token"});
     }
 }
 //creating endpoint for adding in cartdata
-app.post('/addtocart',async(req,res) => {
-    console.log(req.body,req.user);
+app.post('/addtocart',fetchUser,async(req,res) => {
+    console.log("Added",req.body.itemId);
+    let userData=await Users.findOne({_id:req.user.id});
+    userData.cartData[req.body.itemId]+=1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Added")
+})
+//creating endpoint for removing from cartdata
+app.post('/removefromcart',fetchUser,async (req,res)=>{
+    console.log("removed",req.body.itemId);
+    let userData=await Users.findOne({_id:req.user.id});
+    if(userData.cartData[req.body.itemId]>0)
+    userData.cartData[req.body.itemId]-=1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Removed")
+})
+app.post('/removefromcart2',fetchUser,async (req,res)=>{
+    console.log("removed",req.body.itemId);
+    let userData=await Users.findOne({_id:req.user.id});
+    if(userData.cartData[req.body.itemId]>0)
+    userData.cartData[req.body.itemId]-=1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Removed")
+})
+// creating endpoint to get cart data
+app.post('/getcart',fetchUser,async (req,res)=>{
+    console.log("GetCart");
+    let userData=await Users.findOne({_id:req.user.id});
+    res.send(userData.cartData);
 })
 app.listen(port,(error)=>{
     if(!error) {
