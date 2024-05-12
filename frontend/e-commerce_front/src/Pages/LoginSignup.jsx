@@ -18,10 +18,36 @@ const LoginSignup = () => {
         password:"",
         email:""
     })
+    const [errors, setErrors] = useState({});
     const changeHandler =(e)=>{
         setFormData({...formData,[e.target.name]:e.target.value})
+        setErrors({ ...errors, [e.target.name]: '' }); // Clear previous errors
     }
+    const validateForm = () => {
+        let errors = {};
+        let isValid = true;
+
+        if (!formData.email) {
+            errors.email = "Email is required";
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            errors.email = "Invalid email address";
+            isValid = false;
+        }
+
+        if (!formData.password) {
+            errors.password = "Password is required";
+            isValid = false;
+        } else if (formData.password.length < 6) {
+            errors.password = "Password must be at least 6 characters long";
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
+    };
     const login=async()=>{
+        if(validateForm()){
         console.log("Login Function Executed",formData);
         let responseData;
         await fetch('http://localhost:4000/login',{
@@ -38,6 +64,7 @@ const LoginSignup = () => {
         }else{
            alert(responseData.errors); 
         }
+    }
     }
     return (
         <div class="sign-in">
@@ -56,7 +83,7 @@ const LoginSignup = () => {
                 <div class="hey-enter-your">
                     Hey, Enter your details to Login to your account
                 </div>
-                {state==="login"?
+            
                 <div class="group-parent">
                    
                     <input
@@ -67,7 +94,7 @@ const LoginSignup = () => {
                         value={formData.email}
                         onChange={changeHandler}
                     />
-
+                    {errors.email && <div className="error">{errors.email}</div>}
                     <input
                         class="frame-inner"
                         name="password"
@@ -76,13 +103,14 @@ const LoginSignup = () => {
                         value={formData.password}
                         onChange={changeHandler}
                     />
+                    {errors.password && <div className="error">{errors.password}</div>}
                 </div>
-:<></>};
-                <button class="group-container">
+                
+                <button class="group-container" onClick={login}>
                     <div class="rectangle-wrapper">
                         <div class="group-item"></div>
                     </div>
-                    <div onClick={()=>{state==="login"?login():<></>}} class="continue">Continue</div>
+                    <div  class="continue">Continue</div>
                 </button>
                 <div class="our-social-pages-parent">
                     <b class="our-social-pages">Our Social pages </b>

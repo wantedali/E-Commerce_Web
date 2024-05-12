@@ -383,3 +383,27 @@
     color: var(--color-black);
     font-family: var(--font-nirmala-ui);
 }
+
+.error-message {
+    position: absolute;
+    color: #ff4d4f;
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.error-message.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.error-message.email {
+    bottom: 104px
+    /* Adjust the vertical position */
+}
+
+.error-message.password {
+    bottom: -61px;
+    /* Adjust the vertical position */
+}

@@ -351,3 +351,23 @@
     color: #000;
     font-family: "Nirmala UI";
 }
+
+
+.error-message {
+    position: absolute;
+    color: #ff4d4f;
+    font-size: 12px;
+    opacity: 1;
+    /* Change opacity to 1 to make the error message visible */
+    transform: translateY(0);
+    /* Reset transform to default */
+    transition: all 0.3s ease-in-out;
+}
+
+.error-message.email-error {
+    bottom: 59px;
+}
+
+.error-message.password-error {
+    bottom: -14px;
+}

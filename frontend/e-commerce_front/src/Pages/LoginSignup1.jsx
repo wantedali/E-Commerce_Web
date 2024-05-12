@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+import './CSS/LoginSignup1.css'
 import sso_icon2x from '../Components/Assets/sso-icon@2x.png'
 import sso_icon2 from '../Components/Assets/sso-icon2.svg'
 import sso_icon12x from '../Components/Assets/sso-icon1@2x.png'
@@ -7,39 +9,66 @@ import shopping_package2x from '../Components/Assets/shopping-package@2x.png'
 import shopping_cart2x from '../Components/Assets/shopping-cart@2x.png'
 import shopping_bags2x from '../Components/Assets/shopping-bags@2x.png'
 import shopping_basket_full_of_groceries2x from '../Components/Assets/shopping-basket-full-of-groceries@2x.png'
-import { Link } from 'react-router-dom';
-import './CSS/LoginSignup1.css'
-import { useState } from "react";
+
 const LoginSignup1 = () => {
-    const [state,setState] = useState("signup");
-        // eslint-disable-next-line no-undef
-        const [formData,setFormData] =useState({
-            username:"",
-            password:"",
-            email:""
-        })
-        const changeHandler =(e)=>{
-            setFormData({...formData,[e.target.name]:e.target.value})
+    const [formData, setFormData] = useState({
+        username: "",
+        password: "",
+        email: ""
+    });
+
+    const [errors, setErrors] = useState({});
+
+    const changeHandler = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setErrors({ ...errors, [e.target.name]: '' }); // Clear previous errors
+    };
+
+    const validateForm = () => {
+        let errors = {};
+        let isValid = true;
+
+        if (!formData.email) {
+            errors.email = "Email is required";
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            errors.email = "Invalid email address";
+            isValid = false;
         }
-    const signup=async()=>{
-        console.log("Signup Function Executed",formData);
-        let responseData;
-        await fetch('http://localhost:4000/signup',{
-            method:'POST',
-            headers:{
-                Accept:'application/form-data',
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify(formData),
-        }).then((response)=>response.json()).then((data)=>responseData = data);
-        if(responseData.success){
-            localStorage.setItem('auth-token',responseData.token);
-            window.location.replace("/");
-        }else{
-           alert(responseData.errors); 
+
+        if (!formData.password) {
+            errors.password = "Password is required";
+            isValid = false;
+        } else if (formData.password.length < 6) {
+            errors.password = "Password must be at least 6 characters long";
+            isValid = false;
         }
-    }    
-    
+
+        setErrors(errors);
+        return isValid;
+    };
+
+    const signup = async () => {
+        if (validateForm()) {
+            console.log("Signup Function Executed", formData);
+            let responseData;
+            await fetch('http://localhost:4000/signup', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData),
+            }).then((response) => response.json()).then((data) => responseData = data);
+
+            if (responseData.success) {
+                localStorage.setItem('auth-token', responseData.token);
+                window.location.replace("/");
+            } else {
+                alert(responseData.errors);
+            }
+        }
+    };
 
     return (
         <div className="old-sign-in">
@@ -58,7 +87,6 @@ const LoginSignup1 = () => {
                 <div className="old-hey-enter-your">
                     Hey, Enter your details to get sign up to a new account
                 </div>
-                {state==="signup"?
                 <div className="old-group-parent">
                     <input
                         className="old-frame-child"
@@ -68,6 +96,7 @@ const LoginSignup1 = () => {
                         value={formData.username}
                         onChange={changeHandler}
                     />
+                    {errors.username && <div className="error">{errors.username}</div>}
 
                     <input
                         className="old-frame-item"
@@ -77,6 +106,7 @@ const LoginSignup1 = () => {
                         value={formData.email}
                         onChange={changeHandler}
                     />
+                    {errors.email && <div className="error">{errors.email}</div>}
 
                     <input
                         className="old-frame-inner"
@@ -86,13 +116,13 @@ const LoginSignup1 = () => {
                         value={formData.password}
                         onChange={changeHandler}
                     />
+                    {errors.password && <div className="error">{errors.password}</div>}
                 </div>
-:<></>}
-                <button className="old-group-container">
+                <button className="old-group-container" onClick={signup}>
                     <div className="old-rectangle-wrapper">
                         <div className="old-group-item"></div>
                     </div>
-                    <div onClick={()=>{state==="signup"?signup():<></>}} className="old-continue">Continue</div>
+                    <div className="old-continue">Continue</div>
                 </button>
                 <div className="old-our-social-pages-parent">
                     <b className="old-our-social-pages">Our Social pages </b>
@@ -119,26 +149,23 @@ const LoginSignup1 = () => {
                 alt=""
                 src={shopping_package2x}
             />
-
             <img
                 className="old-shopping-cart-icon"
                 alt=""
                 src={shopping_cart2x}
             />
-
             <img
                 className="old-shopping-bags-icon"
                 alt=""
                 src={shopping_bags2x}
             />
-
             <img
                 className="old-shopping-basket-full-of-grocer"
                 alt=""
                 src={shopping_basket_full_of_groceries2x}
             />
         </div>
-    )
-}
+    );
+};
 
 export default LoginSignup1;
