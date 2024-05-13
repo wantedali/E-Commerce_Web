@@ -258,6 +258,17 @@ app.post('/removefromcart2',fetchUser,async (req,res)=>{
     await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
     res.send("Removed")
 })
+
+// creating enpoint to clear all cardata
+app.post('/clearcart' , fetchUser,async(req,res) => {
+    console.log("removed all");
+    let userData=await Users.findOne({_id:req.user.id});
+    for (var i=0;i < 300;i++){
+        userData.cartData[i]=0;
+    }
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Removed all")
+})
 // creating endpoint to get cart data
 app.post('/getcart',fetchUser,async (req,res)=>{
     console.log("GetCart");
