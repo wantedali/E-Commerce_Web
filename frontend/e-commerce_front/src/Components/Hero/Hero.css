@@ -1,0 +1,86 @@
+.hero {
+    height: 100vh;
+    background-color: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+    display: flex;
+}
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-left: 180px;
+    line-height: 1.1;
+}
+
+.hero-left h2 {
+    color: #090909;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.hero-left p {
+    color: #171717;
+    font-size: 100px;
+    font-weight: 700;
+}
+
+.hero-hand-icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-hand-icon img {
+    width: 105px;
+}
+
+.hero-latest-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 310px;
+    height: 70px;
+    border-radius: 75px;
+    margin-top: 30px;
+    background-color: #023E8A;
+    color: #CAF0F8;
+    font-size: 22px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.hero-latest-btn:hover {
+    background-color: #007bff;
+    /* Change to a lighter shade */
+    transform: scale(1.05);
+    /* Scale up by 5% on hover */
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Hide overflow to prevent image overflow */
+    position: relative;
+    /* Set position to relative for absolute positioning */
+}
+
+.hero-right img {
+    position: absolute;
+    top: 55px;
+    left: 110px;
+    width: 600px;
+    /* height: 108%; */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hero-right.animate img {
+    opacity: 0;
+    /* Fade out the image during animation */
+}
